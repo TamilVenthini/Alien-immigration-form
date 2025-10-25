@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👽 Alien Immigration Portal</title>
+  <style>
+    /* ---------------------------------------------------- */
+    /* 1. CSS STYLING (SCROLLING FIX IMPLEMENTED)           */
+    /* ---------------------------------------------------- */
+
+    /* Ensure the HTML document can stretch vertically */
+    html {
+        height: 100%;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      
+      /* 🚀 IMAGE BACKGROUND PROPERTIES 🚀 */
+      background-image: url('https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?cs=srgb&dl=pexels-philippedonn-1169754.jpg&fm=jpg');
+      background-color: #0b0c2a; 
+      background-size: cover; 
+      background-attachment: fixed; 
+      background-position: center center; 
+      
+      /* The filter is applied to the body, so it darkens the background image */
+      filter: brightness(0.7); 
+      
+      color: #e0f7fa;
+      
+      /* --- SCROLLING FIX: ALLOWS PAGE TO SCROLL --- */
+      margin: 0;
+      padding: 40px 20px; 
+      min-height: 100vh;
+      
+      position: relative; 
+      overflow-x: hidden; /* Prevents horizontal scrolling */
+    }
+
+    /* Form Container Styling (The Portal Console) */
+    #alienForm {
+      background-color: rgba(17, 25, 40, 0.95); /* Semi-transparent background */
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); 
+      width: 100%;
+      max-width: 600px;
+      backdrop-filter: blur(5px);
+      border: 1px solid #00ffff;
+      
+      /* --- HORIZONTAL CENTERING --- */
+      margin-left: auto;
+      margin-right: auto;
+      
+      z-index: 10; 
+      position: relative; 
+    }
+    
+    /* Media query for smaller screens: Reduce padding for better screen usage */
+    @media (max-width: 600px) {
+        body {
+            padding: 20px 10px;
+        }
+        #alienForm {
+            padding: 25px;
+        }
+    }
+
+
+    h1 {
+      color: #00ffff;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #a4f5ff;
+    }
+    
+    label[required]:after {
+        content: " *";
+        color: red;
+    }
+
+    /* Uniform Input Styling */
+    .form-input {
+      padding: 12px;
+      margin: 8px 0 20px 0;
+      width: 100%;
+      height: 40px; 
+      border-radius: 8px;
+      border: 2px solid #00ffff;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      box-sizing: border-box; 
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #ff00ff; 
+      box-shadow: 0 0 10px #ff00ff;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    input[type="date"] {
+        appearance: none; 
+    }
+
+    /* Terms and Conditions Styling */
+    #termsContainer {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      border: 1px solid #00ffff;
+    }
+
+    #termsText {
+      font-size: 0.9em;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    #agreeTerms {
+      margin-right: 10px;
+    }
+
+    button[type="submit"] {
+      padding: 15px 30px;
+      margin-top: 25px;
+      border-radius: 8px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+      width: 100%;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  
+  <form id="alienForm">
+    <h1>🛸 Alien Immigration Portal</h1>
+
+    <label for="Name" required>Alien Name:</label>
+    <input type="text" id="Name" class="form-input" required><br>
+    
+    <label for="planetName" required>Planet Name (Vowel + Digit):</label>
+    <input type="text" id="planetName" class="form-input" required><br>
+
+    <label for="alienID" required>Alien ID (ZOR-XY_9999@UFO):</label>
+    <input type="text" id="alienID" class="form-input"
+    pattern="^[A-Z]{3}-[A-Z]{2}_[0-9]{4}@UFO$" 
+    title="Format: ZOR-XY_9999@UFO" required><br>
+
+    <label for="antennaCount" required>Antenna Count (Even Number):</label>
+    <input type="number" id="antennaCount" class="form-input" required><br>
+
+    <label for="SpecialPower" required>Special Power:</label>
+    <input type="text" id="SpecialPower" class="form-input" required><br>
+
+    <label for="ResidenceInEarth" required>Designated Residence on Earth:</label>
+    <input type="text" id="ResidenceInEarth" class="form-input" required><br>
+
+    <label for="PurposeOfVisit" required>Purpose of Visit (e.g., Research, Vacation):</label>
+    <input type="text" id="PurposeOfVisit" class="form-input" required><br>
+
+    <label for="humanPhrase" required>Favorite Human Phrase (Must include Punctuation/Emoji):</label>
+    <input type="text" id="humanPhrase" class="form-input" required><br>
+
+    <label for="landingDate" required>Landing Date:</label>
+    <input type="date" id="landingDate" class="form-input" required><br>
+
+    <label for="departureDate" required>Expected Departure Date:</label>
+    <input type="date" id="departureDate" class="form-input" required><br>
+
+    <!-- Terms and Conditions Section -->
+    <div id="termsContainer">
+      <div id="termsText">
+        <strong>Terms and Conditions for Alien Immigration:</strong><br>
+        By submitting this form, you agree to abide by Earth's laws and regulations. Aliens must not engage in hostile activities, must respect human privacy, and are required to report any special powers that could pose a threat. Failure to comply may result in deportation or interdimensional sanctions. All information provided is subject to verification by the Galactic Council. Immigration is granted at the discretion of Earth authorities, and no refunds are available for rejected applications.
+      </div>
+      <input type="checkbox" id="agreeTerms" required>
+      <label for="agreeTerms">I agree to the terms and conditions.</label>
+    </div>
+
+    <button type="submit">Initiate Earth Immigration Sequence</button>
+  </form>
+
+  <script>
+    /* ---------------------------------------------------- */
+    /* 2. JAVASCRIPT VALIDATION LOGIC (UPDATED FOR TERMS CHECK) */
+    /* ---------------------------------------------------- */
+    
+    // --- Input Restrictions ---
+    document.getElementById("Name").addEventListener("input", function() {
+      this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+    });
+
+    document.getElementById("antennaCount").addEventListener("input", function() {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    
+    // --- Form Submission Validation ---
+    function validateForm(event) {
+      event.preventDefault(); 
+
+      let planetName = document.getElementById("planetName").value.trim();
+      let alienID = document.getElementById("alienID").value.trim();
+      let antenna = document.getElementById("antennaCount").value.trim();
+      let humanPhrase = document.getElementById("humanPhrase").value.trim();
+      let landingDate = document.getElementById("landingDate").value;
+      let agreeTerms = document.getElementById("agreeTerms").checked;
+
+      // 1. Planet Name Validation: Vowel AND Digit
+      if (!/\d/.test(planetName) || !/[aeiouAEIOU]/.test(planetName)) {
+        console.error("🚨 Planet Name must contain at least one vowel (a, e, i, o, u) AND one digit (0-9).");
+        return;
+      }
+      
+      // 2. Alien ID validation
+      let idPattern = /^[A-Z]{3}-[A-Z]{2}_[0-9]{4}@UFO$/;
+      if(!idPattern.test(alienID)) {
+        console.error("🚫 Alien ID format is incorrect. Use format: ZOR-XY_9999@UFO");
+        return;
+      }
+
+      // 3. Antenna count validation: Even numbers only
+      let antennaNum = parseInt(antenna);
+      if(isNaN(antennaNum) || antennaNum % 2 !== 0) {
+        console.error("📡 Antenna count must be a valid EVEN number.");
+        return;
+      }
+
+      // 4. Favorite Human Phrase: Punctuation/Emoji
+      let phrasePattern = /[\p{P}\s\u2000-\u3300\ufe0e\ufe0f]/u; 
+      
+      if (!phrasePattern.test(humanPhrase)) {
+        console.error("💬 Your Favorite Human Phrase must include at least one punctuation mark (like !, ?, .) or an emoji.");
+        return;
+      }
+
+      // 5. Landing date validation: Not in the past
+      let today = new Date();
+      today.setHours(0,0,0,0); 
+      let selectedDate = new Date(landingDate);
+      
+      if(selectedDate < today) {
+        console.error("⏳ Landing Date cannot be in the past. Time travel registration is in another portal.");
+        return;
+      }
+
+      // 6. Departure date validation
+      let departureDate = document.getElementById("departureDate").value;
+      let selectedDepartureDate = new Date(departureDate);
+      if(selectedDepartureDate < selectedDate) {
+           console.error("🗓️ Departure Date must be on or after the Landing Date.");
+           return;
+      }
+
+      // 7. Terms and Conditions validation
+      if (!agreeTerms) {
+        console.error("📜 You must agree to the terms and conditions to proceed.");
+        return;
+      }
+
+      // SUCCESS ACTION: Redirect to the welcome page!
+      window.location.href = "welcome.html"; 
+    }
+
+    // Attach form submit event
+    document.getElementById("alienForm").addEventListener("submit", validateForm);
+  </script>
+</body>
+</html>
